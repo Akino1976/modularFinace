@@ -1,0 +1,290 @@
+% !TEX TS-program = LuaLaTeX
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Option for language settings and equations adjusment,
+%% http://www.tug.org/texlive/Contents/live/texmf-dist/doc/fonts/bera/bera.txt
+\documentclass[swedish, english, 11pt ]{article}
+\usepackage[a4paper, textwidth = 420pt,%
+	textheight = 680pt, headheight = 2pt]{geometry}
+
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+% Makes utf8 in pdf mode
+\usepackage[utf8]{luainputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{stackrel, enumerate}
+\usepackage[leqno]{amsmath}
+\usepackage{lualatex-math}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{arydshln}
+\usepackage{longtable}
+\usepackage{dcolumn}
+% For boxes and other stuff inside align and equations
+% begin{empheq}[ box = \fbox]{align*} ... \end{empheq}                                                
+\usepackage{empheq} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Layout options
+\usepackage{titlesec}
+%filcenter puts the section heading at middle and adjust with 1em accodingly
+% filright, filleft
+% titleformat{<label>}[format]{<section apperance>}{<number>}{space}{}{}
+\titleformat{\section}[block]{\filcenter\Huge\color{midnightblue}\scshape}{\thesection}{6mm}{}{}
+
+\titleformat{\subsection}[block]{\filcenter\Large\bfseries\scshape\color{midnightblue}}{\thesubsection}{6mm}{}
+
+\addto\captionsenglish{\renewcommand{\figurename}{Figur}}
+\addto\captionsenglish{\renewcommand{\contentsname}{Innehållsförteckning}}
+\addto\captionsenglish{\renewcommand{\tablename}{Tabell}}
+\addto\captionsenglish{\renewcommand{\listfigurename}{Figurförteckning}}
+\addto\captionsenglish{\renewcommand{\listtablename}{Tabellförteckning}}
+
+
+\usepackage{booktabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%footmisc controls the footnotes
+\usepackage[bottom, flushmargin, hang, multiple]{footmisc}
+\setlength{\footnotemargin}{3.5mm}
+\usepackage{eurosym}
+\usepackage{isodate} % Data formating \isodate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options for the refrecen package, squares are given when using the
+%% ref option .
+\usepackage[round, authoryear]{natbib}
+
+
+\usepackage{pdflscape}
+%% \begin{landscape}...\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Macros used in the paper, the [2] means number of arguments used in
+%% the macro. Amsthm is package for Theorem
+\usepackage{acronym}
+
+%%\renewcommand{\setthesubsection}{\arabic{subsection}}
+\newcommand{\email}[1]{{\normalfont\texttt{#1}}}
+\newcommand{\code}[1]{\mbox{\texttt{#1}}}
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\newcommand{\proglang}[1]{\textsf{#1}}
+\newcommand{\sign}[1]{\ensuremath{\text{\textsf{#1}}}}
+\newcommand{\HRule}[1]{\rule{#1}{0.5mm}}
+\newcommand{\R}{\proglang{R}\, }
+\newcommand{\D}{\pkg{data.table()}\,}
+\newcommand{\CC}[1]{\code{#1()}\,}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\un}[1]{\textsc{#1}}
+\newcommand{\unn}[1]{\underline{\textit{\scalebox{1.4}{#1}}}}
+
+%% These codes are used in this document a lot
+\newcommand{\inputy}[1]{\input{#1}\unskip}
+% For variables, $\var{1}{2}$
+\newcommand{\var}[2]{\ensuremath{\textbf{#1}_{#2} }}
+\newcommand{\vars}[2]{\ensuremath{\textbf{#1}_{\textrm{#2}}}}
+\usepackage{verbatim}
+\newcommand\codeHighlight[1]{\textcolor[rgb]{1,0,0}{\textbf{#1}}}
+
+% Command för index
+\DeclareRobustCommand{\EX}[2][{\sign{E}}]{\ensuremath{#1}\left[{#2}\right]}
+\DeclareRobustCommand{\EV}[2][{\sign{V}}]{\ensuremath{#1}\left[{#2}\right]}
+\DeclareRobustCommand{\EM}[2][{\sign{M}}]{\ensuremath{#1}\left[{#2}\right]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Control over caption and subfig
+\usepackage{etoolbox} %ifstrequal etc
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,calc}
+\pgfdeclareimage[width=1.5cm ]{image1}{INFO/info1.png}
+
+\newcommand\SecTitle[4]{% can use \hspace*{-1.5}
+\begin{tikzpicture}
+  \node[inner xsep=0pt,minimum height=3cm,text width=1\textwidth,
+      align=left,left color=gray,  right color=white, signal to=#1,font=\Huge,anchor=#2] 
+          at (#3,0) {\hspace*{0.25\textwidth}\textsf{#4}};
+\end{tikzpicture}%
+}
+
+
+\newcommand\SecTitleSub[4]{%
+\begin{tikzpicture}
+  \node[inner xsep=0pt,minimum height=1.5cm,text width=0.95\textwidth,
+      align=left,left color=gray, right color=white, signal to=#1,font=\huge,anchor=#2] 
+          at (#3,0) {\hspace*{0.15\textwidth}\textsf{#4}};
+\end{tikzpicture}%
+}
+\usepackage[textfont=small, labelfont=bf, format=plain,%
+	position=top, justification=raggedright,width=.9\textwidth]{caption}
+\usepackage[font=footnotesize, labelfont=bf]{subfig}
+
+\usepackage{xcolor}
+%\definecolor{gray1}{gray}{0.2}
+\definecolor{darkred}{rgb}{0.545,0,0}
+\definecolor{midnightblue}{rgb}{0.098,0.098,0.439}
+\definecolor{darkred}{rgb}{0.176,0.23,0.31}
+\definecolor{indianred}{rgb}{0.545,0,0} % Between 0 and 1
+\definecolor{crimson}{RGB}{220,20,60} 
+\definecolor{gray1}{RGB}{3,3,3}
+%% Make color in equations
+\makeatletter
+\let\reftagform@=\tagform@
+\def\tagform@#1{\maketag@@@{(\ignorespaces\textcolor{blue}{#1}\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
+\makeatother
+\usepackage{hyperref}
+\hypersetup{%
+  breaklinks = {true},
+  colorlinks= {true},
+  linkcolor={indianred},
+  citecolor={indianred},
+  urlcolor = {midnightblue},
+  unicode  = {true},
+  bookmarksnumbered = {true},
+  bookmarksopen = {true}
+ }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options for fancy heading and alike
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\oddsidemargin = 12pt
+\textwidth = 418pt
+\headsep = 20pt
+\fancyheadoffset{3pt}
+\headheight = 25.8pt
+\pagenumbering{arabic}
+\renewcommand{\headrulewidth}{0.5pt}
+\setlength{\footskip}{0in}
+
+\fancyhf{}
+\fancyhead[C]{\textit{ \thepage\--(\pageref{LastPage}) }}
+\fancyhead[L]{\pgfuseimage{image1}}
+\fancyhead[R]{\footnotesize \textsc{R \& \LaTeX{}}}
+\renewcommand\headrule
+{{\color{midnightblue}%
+  \hrule height 1pt
+         width\headwidth
+  \vspace{1pt}%
+  \hrule height 0.4pt
+         width\headwidth
+  \vspace{-4pt}
+  }}
+%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Control over (indrag) and equation, respectively
+\setlength{\parindent}{0.7cm}
+\numberwithin{equation}{section}
+% Dir to search for graphs
+\graphicspath{{GRAF/}}
+\DeclareGraphicsExtensions{.pdf}
+\newcommand{\includegraphicsmaybe}[2]{\IfFileExists{GRAF/#1}{\includegraphics[width=#2,keepaspectratio=TRUE]{GRAF/#1}}{}}
+
+
+\usepackage{listings}
+\usepackage{Sweave}
+
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{ fontsize=\footnotesize,fontshape=sl,%
+  fontfamily=courier, formatcom=\color{midnightblue}, baselinestretch=0.95,%
+  numbers=left, numbersep=2pt, firstnumber=last,numberblanklines=false}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{formatcom=\color{darkred},%
+  numbers=left, firstnumber=last,numbersep=2pt,fontsize=\footnotesize,%
+  numberblanklines=false
+ }
+
+
+\usepackage{fontspec}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{EB Garamond} 
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+
+
+\linespread{1.1}% Mellanrum i texter
+\frenchspacing % remove extra space after punctuation
+
+
+
+
+\begin{document}
+<<results = tex, echo = FALSE>>=
+library( data.table ) 
+
+DATA		<- file.path(getwd(), 'DATA')
+load( file = file.path( DATA, "Info.RData") )
+
+@
+
+
+ \section{Data Analysis}
+ \setcounter{page}{1}
+ In order for this analysis to work, one needs R version \Sexpr{ R.version$version.string},
+ and \textbf{Lua}\LaTeX{} installed on the platform. This script is run on macOsx and compiled 
+ by a unixscript called in the terminal as \textsf{compile.sh presentValue.Rnw }. 
+ 
+ 
+ The simple return on the stock is defined as \eqref{eq:1}
+ 
+ \begin{equation}
+ \label{eq:1}
+ \textrm{R}_{(t_0,t_1)} = \frac{P_{t_1}}{P_{t_0}} -1
+ \end{equation}
+
+and the gross return as: 
+
+ \begin{equation}
+ \label{eq:2}
+1 +  \textrm{R}_{t}(k) =  \prod\limits_{j=0}^{k-1} (1 + R_{t-j})
+ \end{equation}
+
+
+\begin{enumerate}[{i}]
+	\item \textbf{Dopen}: Returns based on open dates.
+	\item \textbf{Dclose}: Returns based on close dates.
+	\item \textbf{Daily}: Returns based on open and closed the same day
+\end{enumerate}
+
+\begin{figure}[ht]
+\centering
+\caption{Return calculated as \eqref{eq:1}}
+   \includegraphicsmaybe{Return.pdf}{0.95\linewidth}
+\label{fig:antag}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\caption{Return calculated as \eqref{eq:2}}
+\subfloat{
+\fbox{
+   \includegraphicsmaybe{CumReturn.pdf}{0.95\linewidth}
+  }
+  }
+\label{fig:var}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\caption{Probability distribution of simple returns}
+\fbox{
+   \includegraphicsmaybe{dist1.pdf}{1\linewidth}
+}
+\label{fig:antag}
+\end{figure}
+
+ \section{Conclusion}
+Based on the data at hand, I used rolling sum and equation \eqref{eq:1} to estimate the 
+open dates. I found that I would buy the stock at date 
+\Sexpr{  as.Date(Date1[, From]) }
+and sell the stock at \Sexpr{  as.Date(Date1[, To] ) } which gives a return of 
+\Sexpr{ round(Date1[, Return]*100,1) } percent.
+
+
+
+
+
+\end{document}
+

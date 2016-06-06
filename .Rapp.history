@@ -1,0 +1,1668 @@
+Data1
+setnames(Data1, c("Gross_investment", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Kostnad","Internränta", "Årlig ränta" ))
+Data1
+tabelFun
+Data1
+Data1[, unqieu(Deal)]
+Data1[, unique(Deal)]
+setkey(Data1, Deal)
+zz = 1
+Step1	<- Data1[J(zz)]
+Step1
+CompanyName
+pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.16*NROW(Step1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()
+dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(3.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()
+for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(9,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()
+BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) #
+			)	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(9,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()
+pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()
+BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) #
+				) + #
+				labs(x = "Intital kostnad", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(hjust = 0.5) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(hjust = 0.9) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.9) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.95) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 1.05) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 1.5) #
+				)
+ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				)
+BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital kostnad", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()
+dev.off()
+Data1
+options(scipen = 999)#
+Rfiles 			<- list.files(pattern = "\\.r", ignore.case = TRUE, full.names = TRUE)#
+#
+source(grep("common", Rfiles, value = TRUE))#
+.PACK	<- c("financial","ggplot2","scales","data.table",#
+			"ggthemes", "sjPlot", "grid", "gridExtra")		#
+Object 			<- new("startUps", pkgs = .PACK, Input = c("DATA", "GRAF", "INFO") )#
+#
+Object$instant_pkgs( )#
+#
+GRAF		<- file.path(getwd(), "GRAF")#
+DATA		<- file.path(getwd(), "DATA")#
+INFO		<- file.path(getwd(), "INFO")#
+#
+! file.exists("DATA") && dir.create(path = DATA, recursive = TRUE)#
+if( FALSE)#
+{#
+	pay		<- rep(19.9,13)#
+	pay[1]	<- -240#
+#
+	step1 	<- cf(pay, 2)#
+#
+step1$irr*24#
+tim <- (0:Months+1)#
+## This gives the monthly IRR#
+pay <- 15.4 + 0*tim#
+pay[1] <- -333#
+f <- function(r) sum(pay*exp(-r*tim))#
+#
+z <- uniroot(f, c(0,1))#
+## Turn to total period#
+(1 + z$root)^24 - 1#
+#
+}#
+extractIRR		<- function( x )#
+{#
+	IRR		<- x[['irr']]#
+	IRR		<- round(IRR,5)#
+	if( length(IRR) > 1 )#
+	{#
+		IRR 	<- IRR[IRR>= 0] #
+		if( length(IRR) == 0 ) return( "The IRR is negative, change some parameter ant try again", IRR)#
+		IRR		<- as.numeric(IRR)/100#
+	} else {#
+		IRR		<- as.numeric(IRR)/100#
+#
+	}#
+	IRR#
+}#
+# Create dir #
+#
+CSV 		<- list.files(path = DATA, pattern = "\\.csv", #
+					full.names = TRUE, ignore.case = TRUE)#
+## The first word in the files dir should be the brand name#
+tmpargs 	<- commandArgs(TRUE)#
+tmpargs 	<- c("Order1")#
+regex		<- paste0("(?<=", tmpargs,")" )#
+#
+FILE		<- grep(regex, CSV, perl = TRUE, value = TRUE)#
+#
+Data		<- read.csv(FILE, header = TRUE, sep = ";", dec = ",")#
+tmpRound	<- function(x)#
+{#
+	return( round(x, 3))#
+}#
+print(tmpargs)#
+#
+Names		 	<- colnames(Data)#
+#
+Check  <- do.call("rbind", gregexpr("payment", Names, ignore.case = TRUE)) == 1
+Check
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Percentage	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital kostnad", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Gross_investment, Percentage, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Kostnad","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+CompanyName		<- tmpargs
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Percentage	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital kostnad", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Gross_investment, Percentage, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Kostnad","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+Data1
+Data1[.SD[head]]
+Data1[.SD[], by = .(Deal)]
+Data1[.SD[head], by = .(Deal)]
+Data1[, head(.SD, 1), by = .(Deal)]
+Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Investering)]
+Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Investering)]
+Investments[, Commision := 0.18]
+Investments
+Data
+Payment
+Length
+Funding
+Fund
+Pay
+Payment
+Payment[-1]
+unique(Payment[-1])
+What1
+Data1		<- What2[, .(Deal , Months1, Gross_investment, Percentage, Irr, Yearly, Gross)]
+Data1
+setnames(Data1, c("Gross_investment", "Months1", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Löptid","Kostnad","Internränta", "Årlig ränta" ))
+for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}
+Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Löptid, Investering)]
+Investments
+Investments[, Commision := 0.18]
+Investments
+Investments[, ':=' ( G  	= Investering*(1-Commision), #
+						Payment	= Investering/Löptid#
+		)]
+Investments
+tmpargs 	<- c("Novus")
+tmpargs 	<- c("Novus")#
+regex		<- paste0("(?<=", tmpargs,")" )#
+#
+FILE		<- grep(regex, CSV, perl = TRUE, value = TRUE)#
+#
+Data		<- read.csv(FILE, header = TRUE, sep = ";", dec = ",")
+Data
+CompanyName		<- tmpargs
+Nrow			<- NROW(Data)
+Nrow > 1 && Nrow < 3
+Step1		<- Data[i,]#
+		## Should be integer#
+		Months		<- Step1[, grep("month", Names, ignore.case = TRUE, value = TRUE)]#
+		Investment	<- as.integer(na.omit(Step1[, grep("inves", Names, ignore.case = TRUE, value = TRUE)]))#
+		Pay			<- na.omit(Step1[, grep("paym", Names, ignore.case = TRUE, value = TRUE)])#
+		Fund		<- as.numeric(na.omit(Step1[, grep("deal", Names, ignore.case = TRUE, value = TRUE)]))#
+		InitialInvestment		<- Investment*(1 - Fund)#
+		MonthlyPayment			<- round(Investment/Months,1)#
+		pay						<- rep(MonthlyPayment, Months+1)#
+		pay[1]					<- -InitialInvestment#
+		step1 					<- cf(pay, i = (Months + 1))
+Step1		<- Data[i,]
+Step1
+i = 1
+Step1		<- Data[i,]
+Step1		<- Data[i,]#
+		## Should be integer#
+		Months		<- Step1[, grep("month", Names, ignore.case = TRUE, value = TRUE)]#
+		Investment	<- as.integer(na.omit(Step1[, grep("inves", Names, ignore.case = TRUE, value = TRUE)]))#
+		Pay			<- na.omit(Step1[, grep("paym", Names, ignore.case = TRUE, value = TRUE)])#
+		Fund		<- as.numeric(na.omit(Step1[, grep("deal", Names, ignore.case = TRUE, value = TRUE)]))#
+		InitialInvestment		<- Investment*(1 - Fund)#
+		MonthlyPayment			<- round(Investment/Months,1)#
+		pay						<- rep(MonthlyPayment, Months+1)#
+		pay[1]					<- -InitialInvestment#
+		step1 					<- cf(pay, i = (Months + 1))#
+		payment					<- setDT(data.frame( Months = 0:Months, payment = pay))#
+		IRR						<- extractIRR( step1 )
+Step1
+Months		<- Step1[, grep("month", Names, ignore.case = TRUE, value = TRUE)]
+Step1
+Months		<- Step1[, grep("month", Names, ignore.case = TRUE, value = TRUE)]
+Names
+Names		 	<- colnames(Data)
+Months		<- Step1[, grep("month", Names, ignore.case = TRUE, value = TRUE)]
+Investment	<- as.integer(na.omit(Step1[, grep("inves", Names, ignore.case = TRUE, value = TRUE)]))
+Pay			<- na.omit(Step1[, grep("paym", Names, ignore.case = TRUE, value = TRUE)])
+Fund		<- as.numeric(na.omit(Step1[, grep("deal", Names, ignore.case = TRUE, value = TRUE)]))
+InitialInvestment		<- Investment*(1 - Fund)
+MonthlyPayment			<- round(Investment/Months,1)
+pay						<- rep(MonthlyPayment, Months+1)
+pay
+pay[1]					<- -InitialInvestment
+pay
+step1 					<- cf(pay, i = (Months + 1))
+step1
+tmpargs 	<- c("Order1")#
+regex		<- paste0("(?<=", tmpargs,")" )#
+#
+FILE		<- grep(regex, CSV, perl = TRUE, value = TRUE)#
+#
+Data		<- read.csv(FILE, header = TRUE, sep = ";", dec = ",")#
+CompanyName		<- tmpargs#
+tmpRound	<- function(x)#
+{#
+	return( round(x, 3))#
+}#
+print(tmpargs)#
+#
+Names		 	<- colnames(Data)#
+#
+Check  <- do.call("rbind", gregexpr("payment", Names, ignore.case = TRUE)) == 1
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Percentage	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Percentage, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital kostnad", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Months1, Gross_investment, Percentage, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Months1", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Löptid","Kostnad","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)
+for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}#
+	Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Löptid, Investering)]#
+	Investments[, Commision := 0.18]#
+	Investments[, ':=' ( G  	= Investering*(1-Commision), #
+						Payment	= Investering/Löptid#
+		)]
+Investments
+Months
+setkey( Investments, Deal)
+Step1[J(1)]
+Step1[J("1")]
+Investments[J(1)]
+Step1		<- Investments[J(1)]
+Monthly	<- seq(0, Step1[, .(Löptid)])
+Step1[, .(Löptid)]
+Monthly	<- seq(0, as.numeric(Step1[, .(Löptid)]) )
+Monthly
+Step1
+Monthly[ 1 ] 	<- as.numeric(Step1[, .(G)])
+Monthly
+Monthly[ 1 ] 	<- -as.numeric(Step1[, .(G)])
+Monthly
+Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) )
+Monthly
+Payment
+Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]))
+Payment
+Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)
+Payment
+Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)])
+Payment
+Payment[ - 1]
+Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)])
+Payment
+cf(Payment, i = Monthly)
+Monthly
+payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))
+payment1
+step2 			<- cf(Payment, i = Monthly)
+IRR						<- extractIRR( step2 )
+IRR
+payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment1)/(1+IRR)^Months,#
+							payment - tmp 	) ]
+payment1
+payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))
+payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]
+payment1
+payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]
+payment1
+Months
+Step1
+IRR
+data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],,#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^  as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1)
+as.numeric(Step1[, .(Löptid)])
+IRR
+(1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1
+data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],,#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)
+data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)
+Investments
+CompanyName
+payment1
+What1		<- data.frame( )#
+	for( kk in Investments[, unqiue(Deal)])#
+	{#
+		Step1			<- Investments[J(1)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.16*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- rbind(What1, What )						#
+	}
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		Step1			<- Investments[J(1)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.16*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- rbind(What1, What )						#
+	}
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.16*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- rbind(What1, What )						#
+	}
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.17*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- rbind(What1, What )						#
+	}
+What1
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]
+What1		<- setDT(rbind(What1, What )						)
+What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]
+What1
+What1[, IRR := NULL]
+What1
+39.8*(1-0.82)
+39.8*(0.82)
+7.164/39.8
+2.49/17.41
+4.67/15.23
+17.41 + 15.23
+What1
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.17*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.18*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(0.20*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+Ratio		<- ifelse( kk == 5, 0.2, 0.18)
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.18)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(4.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(6.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(5.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(5,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Commision	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Commision, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital Commision", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Months1, Gross_investment, Percentage, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Months1", "Percentage", "Irr", "Yearly"),#
+					 c("Investering", "Löptid","Kostnad","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}#
+	Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Löptid, Investering)]#
+	Investments[, Commision := 0.18]#
+	Investments[, ':=' ( G  	= Investering*(1-Commision), #
+						Payment	= Investering/Löptid#
+		)]#
+	setkey( Investments, Deal)#
+	What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Commision	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Commision, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital Commision", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Months1, Gross_investment, Commision, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Months1", "Irr", "Yearly"),#
+					 c("Investering", "Löptid","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}#
+	Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Löptid, Investering)]#
+	Investments[, Commision := 0.18]#
+	Investments[, ':=' ( G  	= Investering*(1-Commision), #
+						Payment	= Investering/Löptid#
+		)]#
+	setkey( Investments, Deal)#
+	What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	}#
+		What1[, ':=' ("Månadsränta" = round(IRR,3),#
+						Gross		= round(Gross,3) ,#
+						Årlig		= round(Årlig, 3)#
+						 )]#
+		What1[, IRR := NULL]				 #
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What1, plot = TRUE )	#
+		dev.off()
+#!/usr/bin/env Rscript#
+options(scipen = 999)#
+Rfiles 			<- list.files(pattern = "\\.r", ignore.case = TRUE, full.names = TRUE)#
+#
+source(grep("common", Rfiles, value = TRUE))#
+.PACK	<- c("financial","ggplot2","scales","data.table",#
+			"ggthemes", "sjPlot", "grid", "gridExtra")		#
+Object 			<- new("startUps", pkgs = .PACK, Input = c("DATA", "GRAF", "INFO") )#
+#
+Object$instant_pkgs( )#
+#
+GRAF		<- file.path(getwd(), "GRAF")#
+DATA		<- file.path(getwd(), "DATA")#
+INFO		<- file.path(getwd(), "INFO")#
+#
+! file.exists("DATA") && dir.create(path = DATA, recursive = TRUE)#
+if( FALSE)#
+{#
+	pay		<- rep(19.9,13)#
+	pay[1]	<- -240#
+#
+	step1 	<- cf(pay, 2)#
+#
+step1$irr*24#
+tim <- (0:Months+1)#
+## This gives the monthly IRR#
+pay <- 15.4 + 0*tim#
+pay[1] <- -333#
+f <- function(r) sum(pay*exp(-r*tim))#
+#
+z <- uniroot(f, c(0,1))#
+## Turn to total period#
+(1 + z$root)^24 - 1#
+#
+}#
+extractIRR		<- function( x )#
+{#
+	IRR		<- x[['irr']]#
+	IRR		<- round(IRR,5)#
+	if( length(IRR) > 1 )#
+	{#
+		IRR 	<- IRR[IRR>= 0] #
+		if( length(IRR) == 0 ) return( "The IRR is negative, change some parameter ant try again", IRR)#
+		IRR		<- as.numeric(IRR)/100#
+	} else {#
+		IRR		<- as.numeric(IRR)/100#
+#
+	}#
+	IRR#
+}#
+# Create dir #
+#
+CSV 		<- list.files(path = DATA, pattern = "\\.csv", #
+					full.names = TRUE, ignore.case = TRUE)#
+## The first word in the files dir should be the brand name#
+tmpargs 	<- commandArgs(TRUE)#
+tmpargs 	<- c("Order1")#
+regex		<- paste0("(?<=", tmpargs,")" )
+FILE		<- grep(regex, CSV, perl = TRUE, value = TRUE)#
+#
+Data		<- read.csv(FILE, header = TRUE, sep = ";", dec = ",")#
+CompanyName		<- tmpargs#
+tmpRound	<- function(x)#
+{#
+	return( round(x, 3))#
+}#
+print(tmpargs)#
+#
+Names		 	<- colnames(Data)#
+#
+Check  <- do.call("rbind", gregexpr("payment", Names, ignore.case = TRUE)) == 1
+r = 1/(1+0.032)
+r
+a = 19.9
+a*(r - r^3)/1-r
+a*(r - r^3)/(1-r)
+39.8/37.96797
+39.8/37.96797 -1
+0.04825199* 39.8
+(1-0.04825199)*39.8
+(39.8 -37.96797)/39.8
+(39.8 -37.96797)/39.8 -1
+(39.8 -37.96797)/39.8
+(1 - 0.0460309 )*39.8
+MonthValue		<- grep("Month", Names)#
+	OrdersValue		<- grep("Order", Names)#
+	What1			<- list( )#
+	for( z in 1:5 )#
+	{#
+		cat( "Runnting z ", z, "\n")#
+		Step1		<- Data[, MonthValue[z]:OrdersValue[z]]#
+		Name1		<- colnames(Step1)#
+		Months		<- na.omit(Step1[, grep("month", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- na.omit(Step1[, grep("paym", Name1, ignore.case = TRUE, value = TRUE)])#
+		Pay			<- Pay[grepl("\\w+",Pay )]#
+		Pay			<- gsub("\\,", "\\.", Pay)#
+		Pay			<- as.numeric(na.omit( Pay[-1] ))#
+		Fund		<- SUM(Pay)#
+		What		<- data.frame( )#
+		for( i in seq(0,0.2, 0.01) )#
+		{#
+			Funding		<- Fund*(1 - i)#
+			Payment		<- c(-Funding, Pay)	#
+			Length		<- length(Months) -1 #
+			Step2		<- cf(Payment, Months)#
+			IRR			<-  extractIRR( Step2 )#
+			What		<- 	rbind(What, data.frame(	Gross_investment = Funding, #
+													Init		= Fund,#
+													Commision	= i,#
+													Months1		= Length,#
+													Irr = IRR, #
+													Yearly = (1+IRR)^12 -1,#
+													Gross	= (1 + IRR)^Length -1,#
+													Deal	= z ))#
+		}#
+		What1[[z]]		<- setDT(data.frame(sapply(What, tmpRound)))#
+	}#
+#
+	What2		<- rbindlist(What1)#
+	What2[, FacetVar := paste0("Deal ", Deal , " Initial summa [", Init, "] Löptid ", Months1)]#
+#
+	BAR	<- ggplot(What2, aes( x = Commision, y = Gross, group = 1 )) +#
+				geom_line( size = 0.9 ) +#
+				geom_point( size = 2.5) +#
+				facet_wrap( ~ FacetVar, scales = 'free') +#
+				scale_y_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				scale_x_continuous( breaks = pretty_breaks(10), labels = percent ) +#
+				theme_igray( ) + #
+				theme(	title = element_text(size = 12, vjust = 1),#
+						axis.text.x = element_text(size = 9) ,#
+						axis.title.x = element_text(vjust = 0.1) #
+				) + #
+				labs(x = "Intital Commision", y = "Total avkastning")	#
+#
+	pdf( file = file.path(GRAF, paste0(CompanyName,"_Values.pdf")) ,#
+	     height = unit(7,"cm"), width = unit(11,"cm"),#
+	     pointsize = 10, colormodel = "rgb", bg = "white")  #
+		print(BAR)		#
+	dev.off()				#
+	Data1		<- What2[, .(Deal , Months1, Gross_investment, Commision, Irr, Yearly, Gross)]#
+	setnames(Data1, c("Gross_investment", "Months1", "Irr", "Yearly"),#
+					 c("Investering", "Löptid","Internränta", "Årlig ränta" ))#
+#
+	setkey(Data1, Deal)#
+#
+	for( zz in Data1[, unique(Deal)] )#
+	{#
+		Step1	<- Data1[J(zz)]#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_deal_", zz, ".pdf")) ,#
+	    	 height = unit(0.15*NROW(Step1),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+			tabelFun(Step1, plot = TRUE )	#
+		dev.off()#
+	}#
+	Investments		<- Data1[, head(.SD, 1), by = .(Deal)][, .(Deal, Löptid, Investering)]#
+	Investments[, Commision := 0.18]#
+	Investments[, ':=' ( G  	= Investering*(1-Commision), #
+						Payment	= Investering/Löptid#
+		)]#
+	setkey( Investments, Deal)
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	} ## End of llop with kk
+What1
+GetInvestment		<- function( a, i, n )#
+{#
+	r	<- 1/(1+i)#
+	return( a*(r - r^(n+1))/(1-r))#
+}
+GetInvestment(a = 19.9, i = 0.0319350, n = 2)
+(1+0.0319350)^2 -1
+39.8/37.97154 1
+39.8/37.97154 - 1
+(1 + 0.04815343)^12 -1
+sqrt(0.04815343)
+GetInvestment(a = 19.9, i = 0.0319350, n = 12)
+238.8 * 0.18
+238.8 * (1-0.18)
+238.8/195.816 -1
+(1 + 0.0319350)^12
+(1 + 0.0319350)^12 -1
+(1 + 0.0319350)^2 -1
+What1
+What1[, ':=' (BillsWorht = GetInvestment( a = Investering/Löptid, i = 0.0319350, n = Löptid) )]
+What1
+setkey( Investments, Deal)#
+	What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	} ## End of loop with kk
+What1[, ':=' (BillsWorth = GetInvestment( a = Investering/Löptid, i = 0.0319350, n = Löptid) )]
+What1
+238.8/195.81601-1
+195.81601/238.8
+1 -195.81601/238.8
+What1[, ':=' (Commision 	= 1 - BillsWorth/Investering)]
+What1
+What1		<- data.frame( )#
+	for( kk in Investments[, unique(Deal)])#
+	{#
+		cat("Running kk", kk, "\n")#
+		Step1			<- Investments[J(kk)]#
+		Monthly			<- seq(0, as.numeric(Step1[, .(Löptid)]) ) #
+		Payment			<- rep(1,as.numeric(Step1[, .(Löptid)]) + 1)#
+		Payment[ 1 ] 	<- -as.numeric(Step1[, .(G)]) #
+		Payment[ - 1]  	<- as.numeric(Step1[, .(Payment)]) #
+		step2 				<- cf(Payment, i = Monthly)#
+		payment1					<- setDT(data.frame( Months = Monthly, payment = Payment))#
+		IRR						<- extractIRR( step2 )#
+		payment1[, c("Nuvärde", "Ränta") := #
+					list ( tmp <-as.numeric(payment)/(1+IRR)^Months,#
+							payment - tmp 	) ]#
+		payment1[, ':=' (Nuvärde = round(Nuvärde, 2),#
+						Ränta = round(Ränta,2))]					#
+		Ratio		<- ifelse( kk == 5, 0.2, 0.16)#
+		pdf( file = file.path( GRAF, paste0(CompanyName,"_Deals", kk, ".pdf")) ,#
+	    	 height = unit(Ratio*NROW(payment1),"cm"), width = unit(2.6,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(payment1, plot = TRUE )	#
+		dev.off()#
+#
+		What		<- data.frame(	"Deal"		= kk,#
+								"Period" 		= Step1[,.(Löptid)], #
+								"Investment" 	= Step1[, .(Investering)], #
+								"Commision" 	= Step1[, .(Commision)],#
+								"IRR" = IRR, #
+								"Gross" = (1 + IRR)^as.numeric(Step1[, .(Löptid)]) -1, #
+								"Årlig" = (1 + IRR)^12 -1#
+								)#
+		What1		<- setDT(rbind(What1, What )						)#
+	} ## End of loop with kk#
+	What1[, ':=' (BillsWorth = GetInvestment( a = Investering/Löptid, i = 0.0319350, n = Löptid) )]#
+	What1[, ':=' (Commision_1 	= 1 - BillsWorth/Investering)]
+What1
+What1[Löptid = 12]
+What1[Löptid == 12]
+What1[Löptid == 12, unique(IRR)]
+What1[, ':=' ( IRR = What1[Löptid == 12, unique(IRR)]) ]
+What1
+What1[, ':=' (Gross = (1+IRR)^Löptid - 1,#
+					Årlig = (1 + IRR)^12-1#
+		) ]
+What1
+What2		<- What1[, .( Deal, Löptid, Investering, #
+								"Invoice value" = BillsWorth,#
+								Commision = round(Commision_1,3), #
+								"Månadsränta" = IRR,#
+								Gross		= round(Gross,3) ,#
+								Årlig		= round(Årlig, 3)#
+						)]
+What2
+What2		<- What1[, .( Deal, #
+								"Maturity (n)" = Löptid, #
+								"Investering (G)" = Investering, #
+								"Invoice value" = BillsWorth,#
+								"Commision (x)"= round(Commision_1,3), #
+								"Månadsränta (i)" = IRR,#
+								Gross		= round(Gross,3) ,#
+								Årlig		= round(Årlig, 3)#
+						)]
+What2
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What2),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What2, plot = TRUE )	#
+		dev.off()
+What2		<- What1[, .( Deal, #
+								"Maturity (n)" = Löptid, #
+								"Investering (G)" = Investering, #
+								"Invoice value" = round(BillsWorth,3),#
+								"Commision (x)"= round(Commision_1,3), #
+								"Månadsränta (i)" = round(IRR,3),#
+								Gross		= round(Gross,3) ,#
+								Årlig		= round(Årlig, 3)#
+						)]
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What2),"cm"), width = unit(4.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What2, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What2),"cm"), width = unit(5.8,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What2, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What2),"cm"), width = unit(6.5,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What2, plot = TRUE )	#
+		dev.off()
+pdf( file = file.path( GRAF, paste0(CompanyName,"_SummaryInfo", ".pdf")) ,#
+	    	 height = unit(0.17*NROW(What2),"cm"), width = unit(6.3,"cm"),#
+	     		 pointsize = 10, colormodel = "rgb", bg = "white")  #
+				tabelFun(What2, plot = TRUE )	#
+		dev.off()

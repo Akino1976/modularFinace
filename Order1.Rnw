@@ -1,0 +1,404 @@
+% !TEX TS-program = LuaLaTeX
+% !TEX encoding = UTF-8 Unicode
+\documentclass[english, swedish, svgnames, 10pt]{beamer}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+% Makes utf8 in pdf mode
+\usepackage[utf8]{luainputenc}
+
+\addto\captionsenglish{\renewcommand{\figurename}{Figur}}
+\addto\captionsenglish{\renewcommand{\contentsname}{Innehållsförteckning}}
+\addto\captionsenglish{\renewcommand{\tablename}{Tabell}}
+\addto\captionsenglish{\renewcommand{\listfigurename}{Figurförteckning}}
+\addto\captionsenglish{\renewcommand{\listtablename}{Tabellförteckning}}
+\usepackage[textfont=small, labelfont=bf,format=hang,%
+	position=top, justification=raggedright,width=.9\textwidth,%
+	indention=-0.5cm, labelformat=parens]{caption}
+\usepackage{csquotes}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+%\definecolor{gray1}{gray}{0.2}
+\definecolor{darkred}{rgb}{0.545,0,0}
+\definecolor{midnightblue}{rgb}{0.098,0.098,0.439}
+\definecolor{kriitaBlue}{RGB}{0, 68, 91}
+\definecolor{kriitaGreen}{RGB}{44, 171, 102}
+\definecolor{prosaleGrey}{RGB}{153, 153, 153}
+\definecolor{prosaleBalkGrey}{RGB}{229, 229,229}
+
+\definecolor{darkred}{rgb}{0.176,0.23,0.31}
+\definecolor{indianred}{rgb}{0.545,0,0} % Between 0 and 1
+\definecolor{crimson}{RGB}{220,20,60} 
+\definecolor{gray1}{RGB}{3,3,3}
+\definecolor{Pantone}{RGB}{0,84,159} 
+\definecolor{Pantone1}{RGB}{94,182,228} 
+\definecolor{Pantone2}{RGB}{163,219,232} 
+
+
+%% Make color in equations
+\makeatletter
+\let\reftagform@=\tagform@
+\def\tagform@#1{\maketag@@@{(\ignorespaces\textcolor{blue}{#1}\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
+\makeatother
+\usepackage{hyperref}
+\hypersetup{%
+  breaklinks = {true},
+  colorlinks= {true},
+  linkcolor={midnightblue},
+  citecolor={indianred},
+  urlcolor = {midnightblue},
+  unicode  = {true},
+  bookmarksnumbered = {true},
+  bookmarksopen = {true}
+ }
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+
+\tikzset{section number/.style={
+    draw=none,
+    rectangle,    
+    left color=kriitaBlue,
+    right color=kriitaBlue!40,
+    minimum size=1.5em,
+    text=white,
+  },
+  section/.style={
+    draw=none,
+    rectangle,    
+    shading=section shading,
+    minimum height=1.5em,
+    minimum width=0.9\textwidth,
+    text width=0.9\textwidth,
+    text=white,
+    align=center
+  }
+}
+
+\usepackage[overlay,absolute]{textpos}
+
+\newcommand\PlaceText[3]{%
+\begin{textblock*}{10in}(#1,#2)  %% change width of box from 10in as you wish
+\textit{#3}
+\end{textblock*}
+}%
+\textblockorigin{-5mm}{0mm}   %% Default origin top left corner and it can be changed in this line
+
+
+
+\newcommand\PlaceTextFirst[3]{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[outer sep=0pt,inner sep=0pt,anchor=south west] 
+  at ([xshift=#1,yshift=-#2]current page.north west) {#3};
+\end{tikzpicture}%
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+%% Beamer options    
+% Hide navigation symbols
+\setbeamertemplate{navigation symbols}{} 
+\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+\setbeamercolor{title}{fg=Pantone!80!black,bg=indianred!20!white}
+%\usetheme{Singapore}
+
+\newcommand{\includegraphicsLogo}[2]{\IfFileExists{GRAF/#1}{{GRAF/#1}}{../Logo/lpaylevo1.png}}
+\newcommand{\includegraphicsmaybe}[2]{\IfFileExists{GRAF/#1}{\includegraphics[width=#2,keepaspectratio=TRUE]{GRAF/#1}}{No file}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+% We declare the image that will be used as the logo 100/420*0.25=0.059
+\pgfdeclareimage[width = 0.1\paperwidth]{kriita}{../Logo/logo1}
+%% 1125/1400*0.95
+\IfFileExists{../GRAF/invoice_wc.png}
+{
+\pgfdeclareimage[width = 0.95\paperwidth]{core}{../GRAF/invoice_wc.png}
+} {
+\pgfdeclareimage[width = 0.4\paperwidth]{core}{../Logo/paylevo1.png}
+}
+
+\pgfdeclarehorizontalshading{section shading}{2cm}{
+color(0cm)=(prosaleGrey);
+color(2cm)=(prosaleBalkGrey!7);
+color(3cm)=(prosaleGrey!15)
+}
+
+
+
+
+%Helvetica
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{payLevo0} 
+\setsansfont{payLevo0}
+\setmonofont{payLevo0}
+
+\makeatletter
+\setbeamertemplate{section in toc}{
+  \ifnum\the\beamer@tempcount<10 %check to pad with 0
+    \tikz[baseline=-0.5ex]\node[section number]{\,0\inserttocsectionnumber};%
+  \else
+    \tikz[baseline=-0.5ex]\node[section number]{\,\inserttocsectionnumber};%
+  \fi
+  \,%
+  \tikz[baseline=-0.5ex]\node[section]{\inserttocsection};
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TableOfContents subsection, make it square and bg to prosale colour
+\setbeamertemplate{subsection in toc}[square]
+\setbeamercolor{subsection number projected}{bg=kriitaBlue}
+\setbeamerfont{subsection in toc}{%
+  family=\rmfamily,size=\footnotesize%
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Headline and frame title appearance 
+  \setbeamertemplate{headline}
+    {%
+    \leavevmode%
+    \hskip20pt
+    \vskip 5pt
+      \hbox{%
+      \begin{beamercolorbox}{section in head}
+       \hskip28pt \insertsubtitle
+	 \hskip170pt
+     \end{beamercolorbox}%
+    }
+}
+
+ \setbeamertemplate{frametitle}
+{
+\vskip4pt 
+	\insertframetitle
+}
+\setbeamerfont{frametitle}{family= \sffamily}
+\setbeamercolor{frametitle}{fg=midnightblue!70}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Footline, where the page number is placed
+\setbeamertemplate{footline}{
+\hskip40pt
+\vskip0pt plus 1fill
+   % \hskip150pt\pgfuseimage{kriita}
+    \hskip330pt (\textcolor{red}{\insertpagenumber}/\insertdocumentendpage)
+        \vskip10pt plus 2filll %% Lowers the graph
+}
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title page
+\institute{\total}
+\subtitle{Investment report}
+  \setbeamertemplate{title page}
+  {
+  \vskip0pt plus 4fill
+  \hskip0pt
+    \pgfuseimage{core}
+    \vskip0pt plus 1filll
+    \begin{centering}
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+    \end{centering}
+    \vskip0pt plus 1filll
+  }
+  
+
+\newcommand{\textRM}[1]{\textrm{{\scriptsize #1}}}
+
+  % tkiz ball item
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[circle,ball color=kriitaGreen, shade, 
+ color=white,inner sep=4pt] (char) {\tiny #1};}}
+
+% tkiz rounded item
+\newcommand*\rounded[1]{\tikz[baseline=(char.base)]{
+            \node[draw=none,ball color=kriitaGreen, shade, 
+ color=white, rounded corners=3.5pt, inner sep=6pt] (char) {\scriptsize #1};}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+%% Title page options        
+%\title{Analys av data}        
+%\date{\today}    
+%\author[ProSales]{Serdar Akin\\ \href{mailto:serdar.akin@gmail.com}{serdar.akin@gmail.com}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+\graphicspath{{GRAF/}}
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{pdfpages}
+
+
+
+
+\begin{document}
+
+
+ 
+ \begin{frame}  
+   \titlepage
+ \end{frame}
+
+
+%% Common options
+\newcommand{\one}{18mm}
+\newcommand{\plotW}{0.55}
+\newcommand{\Space}{25mm}
+
+\section{Introduction}
+\begin{frame}{Deals}
+
+ \begin{enumerate}
+    \item 19.9\$/mån, total $238.8\$$ löptid 12 månader
+         \item 29.9\$/mån, total $358.8\$$ löptid 12 månader
+             \item 19.9\$/mån, total $119.4\$$ löptid 6 månader
+                 \item 24.9\$/mån, total $99.6\$$ löptid 4 månader
+                     \item 19.9\$/mån, total $39.8\$$ löptid 2 månader
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Förklarning av sektioner}
+
+ \begin{enumerate}
+    \item (Avkastning beroende av initial kostnad)
+    \end{enumerate}
+
+\end{frame}
+
+
+\newcommand{\texting}{Avkastning beroende av initial kostnad}
+\subsection{\texting}
+
+\begin{frame}
+ \frametitle<presentation>{\texting}
+  
+ 
+ 
+   \begin{textblock*}{200mm}(0.15\textwidth, 10mm)%
+      \includegraphics[width=0.55\linewidth,keepaspectratio=TRUE]{Order1_Values}
+    \end{textblock*}
+
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+\renewcommand{\texting}{Summary info of different commision}
+\subsection{\texting}
+
+\begin{frame}
+ \frametitle<presentation>{\texting}
+  
+ 
+ 
+  \begin{textblock*}{200mm}(0.15\textwidth, 15mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_deal_1}% a full-page picture?
+      }
+    \end{textblock*}%
+        \vspace{\Space}
+        
+     \begin{textblock*}{200mm}(0.5\textwidth, 15mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_deal_2}% a full-page picture?
+      }
+    \end{textblock*}%
+        \vspace{\Space} 
+        
+   \begin{textblock*}{200mm}(0.85\textwidth, 15mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_deal_3}
+      }
+    \end{textblock*} 
+   
+      \begin{textblock*}{200mm}(0.20\textwidth, 55mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_deal_4}
+      }
+    \end{textblock*} 
+    
+        \begin{textblock*}{200mm}(0.80\textwidth, 55mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_deal_5}
+      }
+    \end{textblock*} 
+    
+\end{frame}
+
+
+\renewcommand{\texting}{Payments at 18\% commision}
+\subsection{\texting}
+
+\begin{frame}
+ \frametitle<presentation>{\texting}
+  
+ 
+ 
+  \begin{textblock*}{200mm}(0.15\textwidth, 15mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_Deals1}% a full-page picture?
+      }
+    \end{textblock*}%
+        \vspace{\Space}
+        
+     \begin{textblock*}{200mm}(0.6\textwidth, 15mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_Deals2}% a full-page picture?
+      }
+    \end{textblock*}%
+        \vspace{\Space} 
+        
+   \begin{textblock*}{200mm}(0.20\textwidth, 55mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_Deals3}
+      }
+    \end{textblock*} 
+   
+      \begin{textblock*}{200mm}(0.60\textwidth, 55mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_Deals4}
+      }
+    \end{textblock*} 
+    
+        \begin{textblock*}{200mm}(0.70\textwidth, 75mm)%
+  \fbox{
+      \includegraphics[width=0.17\linewidth,keepaspectratio=TRUE]{Order1_Deals5}
+      }
+    \end{textblock*} 
+    
+\end{frame}
+
+\renewcommand{\texting}{Conclusion}
+\subsection{\texting}
+
+\begin{frame}[allowframebreaks]
+ \frametitle<presentation>{\texting}
+  
+   \begin{enumerate}
+    \item[\circled{1}]  Calculate the product so that the yearly interest rate are the same for all the products
+     \item[\circled{2}] Meaning that the commission $(x)$ will be estimated, keeping the internal rate and monthly payments fixed.    
+       \end{enumerate}
+   
+ \begin{align*}
+ \textRM{r} = \,&   \, \frac{1}{1+i} \\
+ \textRM{x\times G} = \,&   \, \alpha \times \left(\frac{r - r^{(n+1)}}{1-r}\right) \\ 
+ \end{align*} 
+  
+  
+
+
+   \begin{columns}[onlytextwidth]
+    \begin{column}{1\textwidth}
+      \centering
+      \includegraphics[width=1\linewidth,keepaspectratio=TRUE]{Order1_SummaryInfo}
+        \end{column}
+​\end{columns}
+
+
+ \end{frame} 
+
+\end{document}
